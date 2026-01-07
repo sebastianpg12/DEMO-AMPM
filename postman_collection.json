@@ -1,0 +1,299 @@
+{
+    "info": {
+        "_postman_id": "delivery-issue-api-collection",
+        "name": "Delivery Issue API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Retraso de entrega",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"retraso_entrega\",\n    \"guia\": \"GUIA-001\",\n    \"contacto\": {\n        \"nombre\": \"Juan Perez\",\n        \"telefono\": \"555-1234\",\n        \"correo\": \"juan@example.com\"\n    },\n    \"cedis_destino\": \"CDMX Norte\",\n    \"agente_asignado\": \"Agente A\",\n    \"descripcion\": \"El paquete no ha llegado en la fecha prometida\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Agilización de entrega",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"agilizacion_entrega\",\n    \"guia\": \"GUIA-002\",\n    \"contacto\": {\n        \"nombre\": \"Maria Lopez\",\n        \"telefono\": \"555-5678\",\n        \"correo\": \"maria@example.com\"\n    },\n    \"cedis_destino\": \"Guadalajara\",\n    \"agente_asignado\": \"Agente B\",\n    \"descripcion\": \"Cliente solicita entrega prioritaria\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Visita en falso",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"visita_falso\",\n    \"guia\": \"GUIA-003\",\n    \"contacto\": {\n        \"nombre\": \"Carlos Ruiz\",\n        \"telefono\": \"555-9012\",\n        \"correo\": \"carlos@example.com\"\n    },\n    \"cedis_destino\": \"Monterrey\",\n    \"agente_asignado\": \"Agente C\",\n    \"descripcion\": \"Cliente dice que estuvo en casa y no tocaron\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DNR (Entrega no reconocida)",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"dnr\",\n    \"guia\": \"GUIA-004\",\n    \"contacto\": {\n        \"nombre\": \"Ana Diaz\",\n        \"telefono\": \"555-3456\",\n        \"correo\": \"ana@example.com\"\n    },\n    \"cedis_destino\": \"Puebla\",\n    \"agente_asignado\": \"Agente D\",\n    \"descripcion\": \"Aparece entregado pero cliente no reconoce la firma\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Paquete no deseado",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"paquete_no_deseado\",\n    \"guia\": \"GUIA-005\",\n    \"contacto\": {\n        \"nombre\": \"Luis Gomez\",\n        \"telefono\": \"555-7890\",\n        \"correo\": \"luis@example.com\"\n    },\n    \"cedis_destino\": \"Tijuana\",\n    \"agente_asignado\": \"Agente E\",\n    \"descripcion\": \"Cliente rechaza el paquete\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Envío sin actualización",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"envio_sin_actualizacion\",\n    \"guia\": \"GUIA-006\",\n    \"contacto\": {\n        \"nombre\": \"Sofia Torres\",\n        \"telefono\": \"555-2345\",\n        \"correo\": \"sofia@example.com\"\n    },\n    \"cedis_destino\": \"Merida\",\n    \"agente_asignado\": \"Agente F\",\n    \"descripcion\": \"Sin movimientos en 48 horas\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Entrega errónea",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"entrega_erronea\",\n    \"guia\": \"GUIA-007\",\n    \"contacto\": {\n        \"nombre\": \"Miguel Angel\",\n        \"telefono\": \"555-6789\",\n        \"correo\": \"miguel@example.com\"\n    },\n    \"cedis_destino\": \"Leon\",\n    \"agente_asignado\": \"Agente G\",\n    \"descripcion\": \"Entregado en domicilio incorrecto\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Paquete dañado",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"paquete_danado\",\n    \"guia\": \"GUIA-008\",\n    \"contacto\": {\n        \"nombre\": \"Elena Cruz\",\n        \"telefono\": \"555-0123\",\n        \"correo\": \"elena@example.com\"\n    },\n    \"cedis_destino\": \"Cancun\",\n    \"agente_asignado\": \"Agente H\",\n    \"descripcion\": \"Caja aplastada y producto roto\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Sustracción",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"sustraccion\",\n    \"guia\": \"GUIA-009\",\n    \"contacto\": {\n        \"nombre\": \"Roberto Gil\",\n        \"telefono\": \"555-4567\",\n        \"correo\": \"roberto@example.com\"\n    },\n    \"cedis_destino\": \"Toluca\",\n    \"agente_asignado\": \"Agente I\",\n    \"descripcion\": \"Paquete llego vacio o incompleto\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Queja al operador",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"type\": \"queja_operador\",\n    \"guia\": \"GUIA-010\",\n    \"contacto\": {\n        \"nombre\": \"Patricia Solis\",\n        \"telefono\": \"555-8901\",\n        \"correo\": \"patricia@example.com\"\n    },\n    \"cedis_destino\": \"Queretaro\",\n    \"agente_asignado\": \"Agente J\",\n    \"descripcion\": \"Mala actitud del repartidor\",\n    \"prioridad\": \"Urgente\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:3000/api/tickets",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "api",
+                        "tickets"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
