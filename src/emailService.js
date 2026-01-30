@@ -1,10 +1,10 @@
 /**
- * Email Service using Brevo API (HTTP)
- * Render blocks SMTP ports, so we use the REST API instead
+ * Email Service using MailerSend API
+ * https://developers.mailersend.com/
  */
 
 /**
- * Send ticket creation notification email to customer using Brevo API
+ * Send ticket creation notification email to customer using MailerSend API
  * @param {Object} ticketData - Ticket information
  */
 const sendTicketNotification = async (ticketData) => {
@@ -99,9 +99,9 @@ const sendTicketNotification = async (ticketData) => {
     `;
 
     const emailData = {
-        sender: {
-            name: "Soporte AMPM",
-            email: process.env.BREVO_SENDER_EMAIL || "enviosampm2@gmail.com"
+        from: {
+            email: process.env.MAILERSEND_FROM_EMAIL || "noreply@trial-vywj2lpoxkxl7oqz.mlsender.net",
+            name: "Soporte AMPM"
         },
         to: [
             {
@@ -109,27 +109,26 @@ const sendTicketNotification = async (ticketData) => {
                 name: nombre || "Cliente"
             }
         ],
-        subject: `✅ Ticket Creado: ${ticketId} - ${typeName}`,
-        htmlContent: htmlContent
+        subject: `Ticket Creado: ${ticketId} - ${typeName}`,
+        html: htmlContent
     };
 
     try {
-        const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+        const response = await fetch('https://api.mailersend.com/v1/email', {
             method: 'POST',
             headers: {
-                'accept': 'application/json',
-                'api-key': process.env.BREVO_API_KEY,
-                'content-type': 'application/json'
+                'Authorization': `Bearer ${process.env.MAILERSEND_API_TOKEN}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(emailData)
         });
 
-        const result = await response.json();
-
         if (response.ok) {
-            console.log('Email notification sent:', result.messageId);
-            return { success: true, messageId: result.messageId };
+            const messageId = response.headers.get('x-message-id') || 'sent';
+            console.log('Email notification sent:', messageId);
+            return { success: true, messageId: messageId };
         } else {
+            const result = await response.json();
             console.error('Error sending email notification:', result);
             return { success: false, error: result.message || 'Unknown error' };
         }
